@@ -1,0 +1,107 @@
+/*
+You will receive three lines from the console:
+© SoftUni – about.softuni.bg. Copyrighted document. Unauthorized copy, reproduction or use is not permitted.
+Follow us: Page 2 of 7
+• A count of people who are going on vacation.
+• Type of the group (Students, Business or Regular).
+• The day of the week which the group will stay on (Friday, Saturday or Sunday).
+Based on the given information calculate how much the group will pay for the entire vacation.
+The price for a single person is as follows: Friday Saturday Sunday Students
+8.45
+9.80
+10.46 Business
+10.90
+15.60
+16 Regular
+15
+20
+22.50
+There are also discounts based on some conditions:
+• For Students – if the group is 30 or more people, you should reduce the total price by 15%.
+• For Business – if the group is 100 or more people, 10 of the people stay for free.
+• For Regular – if the group is between 10 and 20 people (both inclusively), reduce the total price by 5%.
+Note: You should reduce the prices in that EXACT order!
+As an output print the final price which the group is going to pay in the format:
+"Total price: {price}"
+The price should be formatted to the second decimal point.
+*/
+
+using System;
+
+namespace VacationCostCalculator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int peopleCount = int.Parse(Console.ReadLine());
+            string groupType = Console.ReadLine();
+            string dayOfWeek = Console.ReadLine();
+
+            double pricePerPerson = 0;
+
+            if (dayOfWeek == "Friday")
+            {
+                switch (groupType)
+                {
+                    case "Students":
+                        pricePerPerson = 8.45;
+                        break;
+                    case "Business":
+                        pricePerPerson = 10.90;
+                        break;
+                    case "Regular":
+                        pricePerPerson = 15.00;
+                        break;
+                }
+            }
+            else if (dayOfWeek == "Saturday")
+            {
+                switch (groupType)
+                {
+                    case "Students":
+                        pricePerPerson = 9.80;
+                        break;
+                    case "Business":
+                        pricePerPerson = 15.60;
+                        break;
+                    case "Regular":
+                        pricePerPerson = 20.00;
+                        break;
+                }
+            }
+            else if (dayOfWeek == "Sunday")
+            {
+                switch (groupType)
+                {
+                    case "Students":
+                        pricePerPerson = 10.46;
+                        break;
+                    case "Business":
+                        pricePerPerson = 16.00;
+                        break;
+                    case "Regular":
+                        pricePerPerson = 22.50;
+                        break;
+                }
+            }
+
+            double totalPrice = peopleCount * pricePerPerson;
+
+            if (groupType == "Students" && peopleCount >= 30)
+            {
+                totalPrice *= 0.85; // 15% discount
+            }
+            else if (groupType == "Business" && peopleCount >= 100)
+            {
+                totalPrice -= 10 * pricePerPerson; // 10 people stay for free
+            }
+            else if (groupType == "Regular" && (peopleCount >= 10 && peopleCount <= 20))
+            {
+                totalPrice *= 0.95; // 5% discount
+            }
+
+            Console.WriteLine($"Total price: {totalPrice:F2}");
+        }
+    }
+}
