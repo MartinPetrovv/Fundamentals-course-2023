@@ -1,0 +1,40 @@
+/*
+On the first line, you will be given a username and your task is to try to log in the user. The user's password is the username reversed. On the next lines, you will receive passwords:
+• If the password is incorrect, print "Incorrect password. Try again.".
+• If the password is correct, print "User {username} logged in." and stop the program.
+Keep in mind that if the password is still incorrect on the fourth attempt, you should print: "User {username} blocked!".
+Then the program stops.
+*/
+
+using System;
+
+namespace LoginAttempts
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string username = Console.ReadLine();
+            string correctPassword = new string(username.ToCharArray().Reverse().ToArray());
+
+            int passwordAttempts = 0;
+
+            while (passwordAttempts < 4)
+            {
+                string password = Console.ReadLine();
+                passwordAttempts++;
+
+                if (password == correctPassword)
+                {
+                    Console.WriteLine($"User {username} logged in.");
+                    return;
+                }
+                else if (passwordAttempts < 4)
+                {
+                    Console.WriteLine("Incorrect password. Try again.");
+                }
+            }
+
+            Console.WriteLine($"User {username} blocked!");
+        }
+    }
