@@ -1,0 +1,47 @@
+/*
+Write a program that receives a single integer and calculates if it's strong or not. A number is strong, if the sum of the factorials of each digit is equal to the number itself.
+Example: 145 is a strong number, because 1! + 4! + 5! = 145.
+Print "yes", if the number is strong and "no", if the number is not strong.
+*/
+
+namespace _6._Strong_Number
+{
+    internal class Program
+    {
+        
+        // Driver Code
+        public static void Main(String[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int input = n;
+
+            int factorialSum = 0;
+
+            while (n > 0)
+            {
+                int number = n % 10;
+
+                int factorial = 1;
+
+                for (int i = 1; i <= number; i++)
+                {
+                    factorial *= i;
+                }
+
+                factorialSum += factorial;
+
+                n /= 10;
+            }
+
+            if (factorialSum == input)
+            {
+                Console.WriteLine("yes");
+            }
+            else
+            {
+                Console.WriteLine("no");
+            }
+        }
+
+    }
+}
