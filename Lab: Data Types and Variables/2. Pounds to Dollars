@@ -1,1 +1,19 @@
+/*
+Create a program that converts British pounds to US dollars formatted to the 3rd decimal point.
+1 British Pound = 1.31 Dollars
+*/
+namespace _2._Pounds_to_Dollars
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            double punds = double.Parse(Console.ReadLine());
 
+            double dollars = punds * 1.31;
+
+            Console.WriteLine($"{dollars:f3}");
+
+        }
+    }
+}
