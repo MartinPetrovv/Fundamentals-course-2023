@@ -1,0 +1,24 @@
+//Create a program to enter an integer number of centuries and convert it to years, days, hours and minutes.
+
+
+namespace _4._Centuries_to_Minutes
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            int years = 100 * n;
+            int days = (int)(365.2422 * years);
+            int hours = days * 24;
+            int minutes = hours * 60;
+
+
+
+            Console.WriteLine($"{n} centuries = {years} years = {days} days = {hours} hours = {minutes} minutes");
+            
+            
+        }
+    }
+}
