@@ -1,0 +1,46 @@
+/*
+ A number is special when its sum of digits is 5, 7 or 11.
+Write a program to read an integer n and for all numbers in the range 1…n 
+to print the number and if it is special or not (True / False).
+ */
+
+
+namespace _5._Special_Numbers
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            for (int num = 1; num <= n; num++)
+            {
+                int lastDigit = num % 10;
+                int middleDigit = (num / 10) % 10;
+                int firstDigit = middleDigit / 10;
+
+                int sumOfDigit = lastDigit + middleDigit + firstDigit;
+                if (sumOfDigit == 5 ||
+                    sumOfDigit == 7 ||
+                    sumOfDigit == 11)
+                {
+                    Console.WriteLine($"{num} -> True");
+                }
+                else
+                {
+                    Console.WriteLine($"{num} -> False");
+                }
+            }
+
+
+        }
+
+
+    }
+
+
+
+
+
+    
+}
