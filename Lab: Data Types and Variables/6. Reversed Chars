@@ -1,0 +1,25 @@
+/*
+ Create a program that takes 3 lines of characters and prints them in reversed order with a space between them.
+ */
+
+namespace _6._Reversed_Chars
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //string one = Console.ReadLine();
+            //string two = Console.ReadLine();
+            //string tree = Console.ReadLine();
+
+            //Console.WriteLine($"{tree} {two} {one}");
+
+            char one = Char.Parse(Console.ReadLine());
+            char two = Char.Parse(Console.ReadLine());
+            char tree = Char.Parse(Console.ReadLine());
+
+            Console.WriteLine($"{tree} {two} {one}");
+
+        }
+    }
+}
