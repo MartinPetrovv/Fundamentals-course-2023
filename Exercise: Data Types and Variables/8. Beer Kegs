@@ -36,7 +36,7 @@ namespace _8._Beer_Kegs
             int lines = int.Parse(Console.ReadLine());
 
             double biggestKeg = double.MinValue;
-            string modelBeer = string.Empty;
+            
             string biggestBeer= string.Empty;
             
             for (int i = 0; i < lines; i++)
