@@ -1,0 +1,41 @@
+using System.ComponentModel;
+using System.Numerics;
+
+namespace _10.Pokemon
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int pokemonPower = int.Parse(Console.ReadLine());
+            int distance = int.Parse(Console.ReadLine());
+            int exhaustionFactor = int.Parse(Console.ReadLine());
+
+            int pokedCount = 0;
+            double percent = pokemonPower * 0.50;
+
+
+            while (pokemonPower>=distance)
+            {
+                pokedCount++;
+                pokemonPower -=  distance;
+
+                if (pokemonPower == percent && exhaustionFactor != 0)
+                {
+                    pokemonPower /= exhaustionFactor;
+                }
+
+
+            }
+                
+            Console.WriteLine(pokemonPower);
+            Console.WriteLine(pokedCount);
+
+        }
+    }
+/*
+10
+5
+2
+*/
+}
