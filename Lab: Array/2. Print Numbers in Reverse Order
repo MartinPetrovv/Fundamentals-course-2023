@@ -1,0 +1,35 @@
+namespace _2._Print_Numbers_in_Reverse_Order
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            int[] reserved = new int[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                int reservedNum = int.Parse(Console.ReadLine());
+                reserved[i] = reservedNum;
+
+            }
+
+            for (int i = reserved.Length-1; i >= 0; i--)
+            {
+                Console.Write(reserved[i] + " ");
+                
+            }
+
+           
+
+
+        }
+    }/*
+      *
+3
+10
+20
+30
+      */
+}
