@@ -1,52 +1,41 @@
-using System.Collections;
-using System.Reflection.Metadata.Ecma335;
-
-namespace _7._Max_Sequence_of_Equal_Elements
+namespace _123123
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            string[] input = Console.ReadLine().Split().ToArray();
+            int[] numbers = Console.ReadLine()
+                .Split()
+                .Select(int.Parse)
+                .ToArray();
+            int counter = 0;
+            int winningCounter = 0;
+            int index = 0;
+            int number = 0;
 
-            
-            int longestLenght = 0;
 
-            string bestCount = "";
-
-
-            for (int i = input.Length-1; i >=0; i--)
+            for (int i = 0; i < numbers.Length - 1; i++)
             {
-
-                int count = 1;
-                for (int j = i-1; j >= 0; j--)
+                if (numbers[i] == numbers[i + 1])
                 {
-                    if (input[i] == input[j])
+                    counter++;
+                    if (counter > winningCounter)
                     {
-                        count++;
-                        if (longestLenght<= count)
-                        {
-                            longestLenght=count;
-                            bestCount = input[i];
-
-                        }
+                        winningCounter = counter;
+                       
+                       number = numbers[i];
                     }
-                    else
-                    {
-                        break;
-                    }
-
                 }
-                
+                else
+                {
+                    counter = 0;
+                }
             }
-
-            for (int i = 0; i < longestLenght; i++)
+            for (int i = 0; i <= winningCounter; i++)
             {
-                Console.Write($"{bestCount} ");
+                Console.Write(number + " ");
             }
-
-            
-
         }
     }
+    
 }
