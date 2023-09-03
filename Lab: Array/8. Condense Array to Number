@@ -1,0 +1,26 @@
+using System.ComponentModel;
+
+namespace _8._Condense_Array_to_Number
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] input = Console.ReadLine().Split().Select(int.Parse).ToArray();
+
+
+            while (input.Length>1)
+            {
+                int[] arr = new int[input.Length-1];
+
+                for (int i = 0; i < input.Length-1; i++)
+                {
+                    arr[i]= input[i] + input[i+1];
+                }
+                input = arr;
+            }
+
+            Console.WriteLine(input[0]);
+        }
+    }
+}
