@@ -1,0 +1,32 @@
+namespace Exercise_Arrays
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<int> peopleInWagons = new List<int>();
+
+            int wagons = int.Parse(Console.ReadLine());
+
+            int totalPeople = 0;
+
+            for (int i = 0; i < wagons; i++)
+            {
+                int people = int.Parse(Console.ReadLine());
+                peopleInWagons.Add(people);
+
+            }
+
+            for (int i = 0; i < wagons; i++)
+            {
+                totalPeople += peopleInWagons[i];
+                Console.Write(peopleInWagons[i] + " ");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine(totalPeople);
+
+        }
+    }
+}
