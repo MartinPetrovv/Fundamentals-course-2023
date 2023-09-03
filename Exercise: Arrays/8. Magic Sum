@@ -5,20 +5,19 @@ namespace _123123
         static void Main(string[] args)
         {
 
-            int[] input = Console.ReadLine().Split().Select(int.Parse).ToArray();
+            int[] input = Console.ReadLine()
+                .Split().Select(int.Parse)
+                .ToArray();
+
             int num = int.Parse(Console.ReadLine());
-            int arr = 0;
-            int arr1= 0;
-            
+           
             for (int i = 0; i < input.Length; i++)
             {
                 for (int j = i+1; j < input.Length; j++)
                 {
                     if (input[i] + input[j] == num)
                     {
-                        arr = input[i];
-                        arr1 = input[j];
-                        Console.WriteLine($"{arr} {arr1}");
+                       Console.WriteLine($"{input[i]} {input[j]}");
 
                     }
                 }
