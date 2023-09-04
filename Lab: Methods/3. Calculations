@@ -1,0 +1,48 @@
+using System.ComponentModel;
+
+namespace _3._Calculations
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string command = Console.ReadLine();
+            int number = int.Parse(Console.ReadLine());
+            int number1 = int.Parse(Console.ReadLine());
+           
+            if (command == "add")
+            {
+                Add(number, number1);
+            }
+            if (command == "multiply")
+            {
+                Multiply(number, number1);
+            }
+            if (command == "subtract")
+            {
+                Substract(number, number1);
+            }
+            if(command == "divide")
+            {
+                Divide(number, number1);
+            }
+        }
+
+        private static void Divide(int number, int number1)
+        {
+            Console.WriteLine(number / number1);
+        }
+        private static void Substract(int number, int number1)
+        {
+            Console.WriteLine(number - number1);
+        }
+        private static void Multiply(int number, int number1)
+        {
+            Console.WriteLine(number * number1);
+        }
+        private static void Add(int number, int number1)
+        {
+            Console.WriteLine(number + number1);
+        }
+    }
+}
