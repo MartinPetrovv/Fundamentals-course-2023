@@ -1,0 +1,63 @@
+namespace _9._Greater_of_Two_Values
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string input = Console.ReadLine();
+            string arr = Console.ReadLine();
+            string arr1 = Console.ReadLine();
+
+            GetMax(input, arr, arr1);
+
+        }
+        private static void GetMax(string? input, string arr, string arr1)
+        {
+            int num = 0;
+            int num1 = 0;
+            char arrChar = arr[0];
+            char arrChar1 = arr1[0];
+           
+            switch (input)
+            {
+                case "int":
+                    num = int.Parse(arr);
+                    num1 = int.Parse(arr1);
+                    if (num > num1)
+                    {
+                        Console.WriteLine(num);
+                    }
+                    else
+                    {
+                        Console.WriteLine(num1);
+                    }
+                    break;
+                case "char":
+                    if (arrChar > arrChar1) 
+                    {
+                        Console.WriteLine(arrChar);
+                    }
+                    else
+                    {
+                        Console.WriteLine(arrChar1);
+                    }
+                    break;
+                case "string":
+                    string result = String.Empty;
+                    int comparison = arr.CompareTo(arr1);
+                    if (comparison >0)
+                    {
+                        result = arr;
+                    }
+                    else
+                    {
+                        result = arr1;
+                    }
+                    Console.WriteLine(result);
+                    break;
+                    
+            }
+
+        }
+    }
+}
