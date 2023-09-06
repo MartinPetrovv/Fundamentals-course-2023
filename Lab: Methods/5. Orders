@@ -1,0 +1,41 @@
+using System.Net.Http.Headers;
+using System.Xml.Schema;
+
+namespace _5._Orders
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string input = Console.ReadLine();
+            int quantity = int.Parse(Console.ReadLine());
+
+            decimal totalPrice = PrintResult(input, quantity);
+            Console.WriteLine($"{totalPrice:F2}");
+        }
+
+        static decimal PrintResult(string input, int quantity)
+        {
+            decimal result = 0;
+            switch (input)
+            {
+                case "coffee":
+                    result = quantity * 1.50m;
+                    break;
+                case "water":
+                    result = quantity * 1.00m;
+                    break;
+                case "coke":
+                    result = quantity * 1.40m;
+                    break;
+                case "snacks":
+                    result = quantity * 2.00m;
+                    break;
+
+            }
+
+            return result;
+        }
+    }
+}
