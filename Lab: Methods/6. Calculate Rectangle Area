@@ -1,0 +1,21 @@
+namespace _6._Calculate_Rectangle_Area
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            double num = double.Parse(Console.ReadLine());
+            double num1 = double.Parse(Console.ReadLine());
+            double area = GetRectangleArea(num, num1);
+
+            Console.WriteLine(area);
+            
+        }
+
+        public static double GetRectangleArea(double num, double num1)
+        {
+            return num * num1;
+        }
+
+    }
+}
