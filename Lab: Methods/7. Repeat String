@@ -1,0 +1,25 @@
+namespace _7._Repeat_String
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string input = Console.ReadLine();
+            int num = int.Parse(Console.ReadLine());
+
+            PrintString(input, num);
+
+        }
+
+        private static string PrintString(string input, int num)
+        {
+            
+            for (int i = 0; i < num; i++)
+            {
+                Console.Write(input);
+            }
+
+            return input;
+        }
+    }
+}
