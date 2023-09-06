@@ -1,0 +1,21 @@
+namespace _8._Math_Power
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            double firstNum = double.Parse(Console.ReadLine());
+            double secondNum = double.Parse(Console.ReadLine());
+
+            double result = RaiseToPower(firstNum, secondNum);
+            Console.WriteLine(result);
+            
+        }
+
+        private static double RaiseToPower(double firstNum, double secondNum)
+        {
+            double reuslt = Math.Pow(firstNum, secondNum);
+            return reuslt;
+        }
+    }
+}
