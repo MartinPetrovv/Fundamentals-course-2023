@@ -1,0 +1,59 @@
+namespace _10._Multiply_Evens_by_Odds
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int input = int.Parse(Console.ReadLine());
+
+            if (input <0)
+            {
+                input = Math.Abs(input);
+            }
+            
+           int multiple =  GetMultipleOfEvenAndOdds(input);
+           Console.WriteLine(multiple);
+        }
+
+        private static int GetMultipleOfEvenAndOdds(int input)
+        {
+            int evenSum = GetSumOfEvenDigits(input);
+            int oddSum = GetSumOfOddDigits(input);
+            return evenSum * oddSum;
+        }
+
+        private static int GetSumOfOddDigits(int input)
+        {
+            
+                int oddSum = 0;
+                while (input != 0)
+                {
+                    int digit = input % 10;
+                    if (digit % 2 == 1)
+                    {
+                        oddSum += digit;
+                    }
+                    input /= 10;
+                }
+
+                return oddSum;
+            
+        }
+
+        private static int GetSumOfEvenDigits(int input)
+        {
+            int evenSum = 0;
+            while (input != 0)
+            {
+                int digit = input % 10;
+                if (digit % 2 == 0)
+                {
+                    evenSum += digit;
+                }
+                input /= 10;
+            }
+
+            return evenSum;
+        }
+    }
+}
