@@ -1,0 +1,29 @@
+namespace Exercise_Methods
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string numsAsStr = "";
+            while ((numsAsStr = Console.ReadLine()) != "END")
+            {
+                Console.WriteLine(IsPalindrome(numsAsStr));
+            }
+
+        }
+
+        static bool IsPalindrome(string input)
+        {
+            string firstInput = input.Substring(0, input.Length / 2);
+            char[] arr = input.ToCharArray();
+
+            Array.Reverse(arr);
+            string temp = new string(arr);
+            string secondInput = temp.Substring(0, temp.Length / 2);
+
+
+            return firstInput == secondInput;
+        }
+    }
+
+}
