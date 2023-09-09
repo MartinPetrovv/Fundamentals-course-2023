@@ -1,0 +1,57 @@
+using System.Threading.Channels;
+
+namespace _10_Top_Number
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+           int n = int.Parse(Console.ReadLine());
+
+           for (int i = 1; i < n; i++)
+           {
+               if (IsTopNumber(i))
+               {
+                   Console.WriteLine(i);
+               }
+           }
+
+        }
+
+        private static bool IsTopNumber(int num)
+        {
+            if (IsDivisibleByEight(num) && HasOddNumber(num))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private static bool HasOddNumber(int num)
+        {
+            int sumOfAllDigitsOfAllDigits = 0;
+            while (num > 0)
+            {
+                int digit = num % 10;
+                if (digit % 2 != 0)
+                {
+                    return true;
+                }
+                num /= 10;
+            }
+            return false;
+        }
+
+        private static bool IsDivisibleByEight(int num)
+        {
+            int sumOfAllDigitsOfAllDigits = 0;
+            while (num > 0)
+            {
+                int digit = num % 10;
+                sumOfAllDigitsOfAllDigits += digit;
+                num /= 10;
+            }
+            return sumOfAllDigitsOfAllDigits % 8 == 0;
+        }
+    }
+}
