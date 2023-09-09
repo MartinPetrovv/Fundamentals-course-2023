@@ -1,0 +1,30 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        //char char1 = Console.ReadKey().KeyChar;
+        //char char2 = Console.ReadKey().KeyChar;
+        char char1 = Char.Parse(Console.ReadLine());
+        char char2 = Char.Parse(Console.ReadLine());
+        Console.WriteLine();
+        PrintCharactersBetween(char1, char2);
+    }
+    static void PrintCharactersBetween(char char1, char char2)
+    {
+        if (char2 < char1)
+        {
+            char temp = char1;
+            char1 = char2;
+            char2 = temp;
+        }
+        for (char c = (char)(char1 + 1); c < char2; c++)
+        {
+            Console.Write(c + " ");
+        }
+
+       
+
+    }
+}
