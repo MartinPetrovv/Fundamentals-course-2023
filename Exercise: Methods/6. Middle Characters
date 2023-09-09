@@ -1,0 +1,27 @@
+namespace _6._Middle_Characters
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string inputArray = Console.ReadLine();
+            //string[] inputArray = input.Split().ToArray();
+            Console.WriteLine(OutputTwoMiddleCharacters(inputArray));
+        }
+        public static string OutputTwoMiddleCharacters(string inputArray)
+        {
+            int len = inputArray.Length;
+            string result = "";
+
+            if (len % 2 == 1)
+            {
+                result = inputArray[inputArray.Length / 2].ToString();
+            }
+            else
+            {
+                result = inputArray[inputArray.Length / 2 - 1].ToString() + inputArray[inputArray.Length / 2].ToString();
+            }
+            return result;
+        }
+    }
+}
