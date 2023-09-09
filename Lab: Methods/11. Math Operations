@@ -1,0 +1,48 @@
+using System;
+
+namespace CalculatorMethod
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double firstNumber = double.Parse(Console.ReadLine());
+            string @operator = Console.ReadLine();
+            double secondNumber = double.Parse(Console.ReadLine());
+
+            double result = Calculate(firstNumber, secondNumber, @operator);
+
+            Console.WriteLine($"{result}");
+        }
+
+        static double Calculate(double num1, double num2, string @operator)
+        {
+            double result = 0;
+
+            switch (@operator)
+            {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    if (num2 == 0)
+                    {
+                        return double.NaN; // Return NaN (Not-a-Number) for division by zero.
+                    }
+                    result = num1 / num2;
+                    break;
+                default:
+
+                    return double.NaN; // Return NaN for an invalid operator.
+            }
+
+            return result;
+        }
+    }
+}
