@@ -1,0 +1,160 @@
+using System.ComponentModel;
+using System.ComponentModel.Design;
+using System.Data;
+
+namespace _7._List_Manipulation_Advanced
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> input = Console.ReadLine()
+                .Split()
+                .Select(int.Parse)
+                .ToList();
+            bool change = false;
+            while (true)
+            {
+                string command = Console.ReadLine();
+                if (command == "end")
+                {
+                    break;
+                }
+                string[] arguments = command.Split(' ');
+                string arr = arguments[0];
+                
+               
+                switch (arr)
+                {
+                    case "Add":
+                        int number = int.Parse(arguments[1]);
+                        input.Add(number); change = true; break;
+                    case "Remove":
+                        int number1 = int.Parse(arguments[1]);
+                        input.Remove(number1); change = true; break;
+                    case "RemoveAt":
+                        int number2 = int.Parse(arguments[1]);
+                        input.RemoveAt(number2); change = true; break;
+                    case "Insert":
+                        int number3 = int.Parse(arguments[1]);
+                        int number4 = int.Parse(arguments[2]);
+                        input.Insert(number4, number3); change = true; break;
+
+                    case "Contains":
+                        int token = int.Parse(arguments[1]);
+                        IsItCointaned(input, arr, token);
+                       break;
+                    case "PrintEven":
+                        CheckForEvenNumber(input);
+                       break; 
+                    case "PrintOdd":
+                            CheckforOddNumber(input);
+                       break;
+                    case "GetSum":
+                        GetTotalSum(input);
+                        break;
+                    case "Filter":
+                        string condition = arguments[1];
+                        int arr1 = int.Parse(arguments[2]);
+                        Filtered(input, condition, arr1);
+                        break;
+                }
+               
+            }
+
+            if (change == true)
+            {
+                Console.WriteLine(string.Join(" ", input));
+            }
+        }
+
+        private static void Filtered(List<int> input, string condition, int arr1)
+        {
+            List<int> filteredNumbers = new List<int>();
+            for (int i = 0; i < input.Count; i++)
+            {
+                if (condition == "<")
+                {
+                    if (input[i] < arr1)
+                    {
+                        filteredNumbers.Add(input[i]);
+                    }
+                }
+                else if (condition == ">")
+                {
+                    if (input[i] > arr1)
+                    {
+                        filteredNumbers.Add(input[i]);
+                    }
+                }
+                else if (condition == ">=")
+                {
+                    if (input[i] >= arr1)
+                    {
+                        filteredNumbers.Add(input[i]);
+                    }
+                }
+                else if (condition == "<=")
+                {
+                    if (input[i] <= arr1)
+                    {
+                        filteredNumbers.Add(input[i]);
+                    }
+                }
+            }
+            Console.WriteLine(string.Join(" ", filteredNumbers));
+        }
+
+        private static void GetTotalSum(List<int> input)
+        {
+            int totalSum = 0;
+            for (int j = 0; j < input.Count; j++)
+            {
+                totalSum += (input[j]);
+            }
+
+            Console.WriteLine(string.Join(" ", totalSum));
+
+        }
+
+        private static void CheckforOddNumber(List<int> input)
+        {
+            List<int> odd = new List<int>();
+            for (int i = 0; i < input.Count; i++)
+            {
+                if (input[i] % 2 != 0)
+                {
+                    odd.Add(input[i]);
+                }
+            }
+            Console.WriteLine(string.Join(" ", odd));
+        }
+
+        private static void CheckForEvenNumber(List<int> input)
+        {
+            List<int> even = new List<int>();
+
+            for (int i = 0; i < input.Count; i++)
+            {
+                if (input[i] % 2 == 0)
+                {
+                    even.Add(input[i]);
+                }
+            } 
+            Console.WriteLine(string.Join(" ", even));
+        }
+
+        public static void IsItCointaned(List<int> input, string arr, int token)
+        {
+            if (input.Contains(token) == true)
+            {
+                Console.WriteLine("Yes");
+            }
+            else
+            {
+                Console.WriteLine("No such number");
+            }
+        }
+        
+    }
+}
