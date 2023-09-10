@@ -1,0 +1,34 @@
+using System.Net.Sockets;
+
+namespace Exercise_List
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+           
+
+            string[] input = Console.ReadLine().Split(" ")
+                .ToArray();
+
+            Random rnd = new Random();
+
+            for (int i = 0; i < input.Length -1 ; i++)
+            {
+                string valueAtIndex = input[i];
+                int randomIndex = rnd.Next(0, input.Length);
+                string randomValueAtIndex = input[randomIndex];
+
+                input[i] = randomValueAtIndex;
+                input[randomIndex] = valueAtIndex;
+
+            }
+
+            foreach (var value in input)
+            {
+                Console.WriteLine(value);
+            }
+            
+        }
+    }
+}
