@@ -1,0 +1,49 @@
+namespace _6._List_Manipulation_Basics
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> input = Console.ReadLine()
+                .Split()
+                .Select(int.Parse)
+                .ToList();
+            
+            while (true)
+            {
+                string token = Console.ReadLine();
+                if (token == "end")
+                {
+                    break;
+                }
+
+                string[] arguments = token.Split();
+                string command = arguments[0];
+                int num = int.Parse(arguments[1]);
+
+                switch (command)        
+                {
+                    case "Add":
+                        input.Add(num);
+                        break;
+                    case "Remove":
+                        input.Remove(num);
+                        break;
+                    case "RemoveAt": 
+                        input.RemoveAt(num);
+                        break;
+                    case "Insert":
+                        int insertIndex = int.Parse(arguments[2]);
+                        input.Insert(insertIndex, num);
+                        break;
+                        
+                }
+
+            }
+
+            Console.WriteLine(string.Join(" ", input));
+
+
+        }
+    }
+}
